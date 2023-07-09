@@ -9,7 +9,6 @@ function App() {
         </ruby>
         めまして
       </div>
-
       <Button />
     </main>
   )
