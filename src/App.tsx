@@ -1,17 +1,20 @@
+import { BrowserRouter } from 'react-router-dom'
+import { SWRConfig } from 'swr'
+import { FCC } from 'types'
+
 import { Button } from 'components/Button'
 
-function App() {
+import { GlobalErrorBoundary } from './components/GlobalErrorBoundary'
+
+export const App: FCC = ({ children }) => {
   return (
-    <main className="flex h-full flex-col items-center justify-center text-center text-[20vh] font-black">
-      <div>
-        <ruby>
-          初<rt>はじ</rt>
-        </ruby>
-        めまして
-      </div>
-      <Button />
-    </main>
+    <>
+      <SWRConfig>
+        <GlobalErrorBoundary>
+          <BrowserRouter>{children}</BrowserRouter>
+        </GlobalErrorBoundary>
+        <Button />
+      </SWRConfig>
+    </>
   )
 }
-
-export default App
