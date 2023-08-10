@@ -1,20 +1,15 @@
-import { BrowserRouter } from 'react-router-dom'
-import { SWRConfig } from 'swr'
-import { FCC } from 'types'
+import Content from 'layouts/content/content'
+import Sidebar from 'layouts/sidebar/sidebar'
 
-import { Button } from 'components/Button'
+import './index.css'
 
-import { GlobalErrorBoundary } from './components/GlobalErrorBoundary'
-
-export const App: FCC = ({ children }) => {
+export const App = () => {
   return (
     <>
-      <SWRConfig>
-        <GlobalErrorBoundary>
-          <BrowserRouter>{children}</BrowserRouter>
-        </GlobalErrorBoundary>
-        <Button />
-      </SWRConfig>
+      <div className="App">
+        <Sidebar />
+        <Content />
+      </div>
     </>
   )
 }
